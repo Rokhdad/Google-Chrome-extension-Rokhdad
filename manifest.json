@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Rokhdad",
+  "version": "1.0",
+  "description": "Rokhdad",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "128.png",
+      "48": "128.png",
+      "128": "128.png"
+    }
+  },
+  "icons": {
+    "16": "128.png",
+    "48": "128.png",
+    "128": "128.png"
+  },
+    "permissions": [
+    "activeTab"
+  ],
+  
+"web_accessible_resources": [
+    {
+        "resources": ["discount.png","rokhdad-activated.png","sound.mp3","discountRokhdad.png"],
+        "matches": ["<all_urls>"]
+    }
+],
+  
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.eseminar.tv/*", "*://eseminar.tv/*"],
+      "js": ["content.js"]
+	  
+    }
+  ]
+  
+}
