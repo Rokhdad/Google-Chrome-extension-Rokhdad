@@ -62,20 +62,7 @@ const newURL = parts.slice(0, parts.length - 1).join("/") + "/" + lastPart[0]+"?
   const discountLink = document.createElement('a');
   discountLink.href = newURL; // اینجا لینک تخفیف خود را قرار دهید
   
-  //discountImage.style.width = '100px';
 
-  const audio = new Audio(chrome.runtime.getURL('sound.mp3'));
-  audio.volume = 0.5;
-
-  stickyBox.appendChild(discountImage);
-  discountLink.appendChild(stickyBox);
-  document.body.appendChild(discountLink);
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 0) {
-      audio.play();
-    }
-  });
 }
 
 function createRokhdad(){

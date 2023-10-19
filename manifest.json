@@ -23,7 +23,7 @@
   
 "web_accessible_resources": [
     {
-        "resources": ["discount.png","rokhdad-activated.png","sound.mp3","discountRokhdad.png"],
+        "resources": ["discount.png","rokhdad-activated.png","discountRokhdad.png"],
         "matches": ["<all_urls>"]
     }
 ],
