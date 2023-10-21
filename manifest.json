@@ -1,8 +1,12 @@
 {
   "manifest_version": 3,
   "name": "Rokhdad",
-  "version": "1.0",
+  "version": "0.1",
   "description": "Rokhdad",
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "action": {
+      "default_title": "رخداد"
+   },
   "permissions": ["activeTab", "storage", "scripting"],
   "action": {
     "default_popup": "popup.html",
