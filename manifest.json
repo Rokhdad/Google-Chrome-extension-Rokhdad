@@ -32,7 +32,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.eseminar.tv/*", "*://eseminar.tv/*"],
-      "js": ["content.js"]
+      "js": ["js/content.js"]
 	  
     }
   ]
