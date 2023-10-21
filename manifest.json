@@ -23,7 +23,7 @@
   
 "web_accessible_resources": [
     {
-        "resources": ["assets/images/discount.png","assets/images/rokhdad-activated.png","assets/images/discountRokhdad.png"],
+        "resources": ["assets/images/rokhdad/discount.png","assets/images/rokhdad/rokhdad-activated.png","assets/images/rokhdad/discountRokhdad.png"],
         "matches": ["<all_urls>"]
     }
 ],
