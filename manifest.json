@@ -8,14 +8,14 @@
     "default_popup": "popup.html",
     "default_icon": {
       "16": "assets/images/icon/128.png",
-      "48": "images/128.png",
-      "128": "images/128.png"
+      "48": "images/icon/128.png",
+      "128": "images/icon/128.png"
     }
   },
   "icons": {
-    "16": "assets/icon/images/128.png",
-    "48": "assets/icon/images/128.png",
-    "128": "assets/icon/images/128.png"
+    "16": "assets/images/icon/128.png",
+    "48": "assets/images/icon/128.png",
+    "128": "assets/images/icon/128.png"
   },
     "permissions": [
     "activeTab"
