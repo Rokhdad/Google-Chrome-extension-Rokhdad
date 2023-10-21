@@ -1,9 +1,7 @@
 function sendRequest(url, callback) {
   fetch(url)
     .then(response => response.json())
-    .then(data => {
-      callback(data.result);
-    })
+    .then(data => callback(data.result))
     .catch(error => console.error(error));
 }
 
@@ -12,33 +10,30 @@ function isEseminarDomain() {
   return currentDomain === "eseminar.tv" || currentDomain.endsWith(".eseminar.tv");
 }
 
-(async function () {
-		
+async function main() {
   if (isEseminarDomain()) {
-
-	createRokhdad();
-	checkDiscount();
-	
+    createRokhdad();
+    checkDiscount();
     const currentURL = window.location.href;
+    const discountCode = "rokhdadmedia";
     const apiURL = `https://api.rokhdad.media/eseminar/checkoff.php?title=${currentURL}`;
-    
+
     try {
       const result = await fetch(apiURL);
       const data = await result.json();
 
       if (data.video === 1) {
-		  createStickyBoxVideo();
-      }else if(data.result === 1){
-		  createStickyBox()
-	  }
+        createStickyBox("discount_code=rokhdadmedia");
+      } else if (data.result === 1) {
+        createStickyBox("discount_code=rokhdad");
+      }
     } catch (error) {
       console.error(error);
     }
   }
-})();
+}
 
-function createStickyBox() {
-
+function createStickyBox(discountCode) {
   const stickyBox = document.createElement('div');
   stickyBox.id = 'stickyBox';
   stickyBox.style.position = 'fixed';
@@ -46,111 +41,57 @@ function createStickyBox() {
   stickyBox.style.bottom = '70px';
   stickyBox.style.zIndex = '9999';
   stickyBox.style.padding = '30px';
-  //stickyBox.style.backgroundColor = 'white';
-  //stickyBox.style.border = '1px solid #ccc';
-
-// URL فعلی را از مرورگر خوانده و در متغیر originalURL ذخیره می‌کنیم
-const originalURL = window.location.href;
-
-// URL را با '/' به بخش‌های مختلف تقسیم می‌کنیم
-const parts = originalURL.split("/");
-
-// آخرین بخش را با '?' تقسیم کنید
-const lastPart = parts[parts.length - 1].split("?");
-
-// بخش اول (بدون علامت سوال) را برای ایجاد URL جدید استفاده کنید
-const newURL = parts.slice(0, parts.length - 1).join("/") + "/" + lastPart[0]+"?discount_code=rokhdad";
 
   const discountImage = document.createElement('img');
-  discountImage.src = chrome.runtime.getURL('discount.png');
-   
-  const discountLink = document.createElement('a');
-  discountLink.href = newURL; // اینجا لینک تخفیف خود را قرار دهید
-  
-    stickyBox.appendChild(discountImage);
-	discountLink.appendChild(stickyBox);
-	document.body.appendChild(discountLink);
+  discountImage.src = chrome.runtime.getURL('images/discount.png');
 
+  const discountLink = document.createElement('a');
+  const newURL = window.location.href.split("?")[0] + `?${discountCode}`;
+  discountLink.href = newURL;
+
+  stickyBox.appendChild(discountImage);
+  discountLink.appendChild(stickyBox);
+  document.body.appendChild(discountLink);
 }
 
-function createStickyBoxVideo() {
-
+function createRokhdad() {
   const stickyBox = document.createElement('div');
   stickyBox.id = 'stickyBox';
   stickyBox.style.position = 'fixed';
   stickyBox.style.left = '15px';
-  stickyBox.style.bottom = '70px';
+  stickyBox.style.bottom = '185px';
   stickyBox.style.zIndex = '9999';
   stickyBox.style.padding = '30px';
-  //stickyBox.style.backgroundColor = 'white';
-  //stickyBox.style.border = '1px solid #ccc';
 
-// URL فعلی را از مرورگر خوانده و در متغیر originalURL ذخیره می‌کنیم
-const originalURL = window.location.href;
+  const rokhdadActivated = document.createElement('img');
+  rokhdadActivated.src = chrome.runtime.getURL('images/rokhdad-activated.png');
 
-// URL را با '/' به بخش‌های مختلف تقسیم می‌کنیم
-const parts = originalURL.split("/");
+  const linkRokhdad = document.createElement('a');
+  linkRokhdad.href = 'https://rokhdad.media/extention';
 
-// آخرین بخش را با '?' تقسیم کنید
-const lastPart = parts[parts.length - 1].split("?");
-
-// بخش اول (بدون علامت سوال) را برای ایجاد URL جدید استفاده کنید
-const newURL = parts.slice(0, parts.length - 1).join("/") + "/" + lastPart[0]+"?discount_code=rokhdadmedia";
-
-  const discountImagee = document.createElement('img');
-  discountImagee.src = chrome.runtime.getURL('discount.png');
-   
-  const discountLink = document.createElement('a');
-  discountLink.href = newURL; // اینجا لینک تخفیف خود را قرار دهید
-  
-    stickyBox.appendChild(discountImagee);
-	discountLink.appendChild(stickyBox);
-	document.body.appendChild(discountLink);
-
+  stickyBox.appendChild(rokhdadActivated);
+  linkRokhdad.appendChild(stickyBox);
+  document.body.appendChild(linkRokhdad);
 }
 
-function createRokhdad(){
-	const stickyBoxx = document.createElement('div');
-	stickyBoxx.id = 'stickyBoxx';
-	stickyBoxx.style.position = 'fixed';
-	stickyBoxx.style.left = '15px';
-	stickyBoxx.style.bottom = '185px';
-	stickyBoxx.style.zIndex = '9999';
-	stickyBoxx.style.padding = '30px';
-	
-	
-	const rokhdadactivated = document.createElement('img');
-	rokhdadactivated.src = chrome.runtime.getURL('rokhdad-activated.png');
-	
-	const linkRokhdad = document.createElement('a');
-	linkRokhdad.href = 'https://rokhdad.media/extention'; // اینجا لینک تخفیف خود را قرار دهید
-  
-	stickyBoxx.appendChild(rokhdadactivated);
-	linkRokhdad.appendChild(stickyBoxx);
-	document.body.appendChild(linkRokhdad);
+function checkDiscount() {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  if (urlParams.has("discount_code") && urlParams.get("discount_code")) {
+    const stickyBox = document.createElement('div');
+    stickyBox.id = 'stickyBox';
+    stickyBox.style.position = 'fixed';
+    stickyBox.style.left = '15px';
+    stickyBox.style.bottom = '70px';
+    stickyBox.style.zIndex = '9999';
+    stickyBox.style.padding = '30px';
+
+    const discountImage = document.createElement('img');
+    discountImage.src = chrome.runtime.getURL('images/discountRokhdad.png');
+
+    stickyBox.appendChild(discountImage);
+    document.body.appendChild(stickyBox);
+  }
 }
 
-
-function checkDiscount(){
-	const urlParams = new URLSearchParams(window.location.search);
-
-	// چک کردن وجود پارامتر discount_code با مقدار rokhdad
-	if (urlParams.has("discount_code") && urlParams.get("discount_code")) {
-		
-		const stickyBoxRokhdad = document.createElement('div');
-		stickyBoxRokhdad.id = 'stickyBox';
-		stickyBoxRokhdad.style.position = 'fixed';
-		stickyBoxRokhdad.style.left = '15px';
-		stickyBoxRokhdad.style.bottom = '70px';
-		stickyBoxRokhdad.style.zIndex = '9999';
-		stickyBoxRokhdad.style.padding = '30px';
-	  
-		const discountRokhdad = document.createElement('img');
-		discountRokhdad.src = chrome.runtime.getURL('discountRokhdad.png');
-	  
-		stickyBoxRokhdad.appendChild(discountRokhdad);
-		document.body.appendChild(stickyBoxRokhdad);
-  
-  
-	}
-}
+main();
