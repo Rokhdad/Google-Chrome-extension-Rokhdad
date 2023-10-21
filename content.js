@@ -43,7 +43,7 @@ function createStickyBox(discountCode) {
   stickyBox.style.padding = '30px';
 
   const discountImage = document.createElement('img');
-  discountImage.src = chrome.runtime.getURL('images/discount.png');
+  discountImage.src = chrome.runtime.getURL('assets/images/discount.png');
 
   const discountLink = document.createElement('a');
   const newURL = window.location.href.split("?")[0] + `?${discountCode}`;
@@ -64,7 +64,7 @@ function createRokhdad() {
   stickyBox.style.padding = '30px';
 
   const rokhdadActivated = document.createElement('img');
-  rokhdadActivated.src = chrome.runtime.getURL('images/rokhdad-activated.png');
+  rokhdadActivated.src = chrome.runtime.getURL('assets/images/rokhdad-activated.png');
 
   const linkRokhdad = document.createElement('a');
   linkRokhdad.href = 'https://rokhdad.media/extention';
@@ -87,7 +87,7 @@ function checkDiscount() {
     stickyBox.style.padding = '30px';
 
     const discountImage = document.createElement('img');
-    discountImage.src = chrome.runtime.getURL('images/discountRokhdad.png');
+    discountImage.src = chrome.runtime.getURL('assets/images/discountRokhdad.png');
 
     stickyBox.appendChild(discountImage);
     document.body.appendChild(stickyBox);

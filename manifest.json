@@ -7,15 +7,15 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "images/128.png",
+      "16": "assets/images/icon/128.png",
       "48": "images/128.png",
       "128": "images/128.png"
     }
   },
   "icons": {
-    "16": "images/128.png",
-    "48": "images/128.png",
-    "128": "images/128.png"
+    "16": "assets/icon/images/128.png",
+    "48": "assets/icon/images/128.png",
+    "128": "assets/icon/images/128.png"
   },
     "permissions": [
     "activeTab"
@@ -23,7 +23,7 @@
   
 "web_accessible_resources": [
     {
-        "resources": ["images/discount.png","images/rokhdad-activated.png","images/discountRokhdad.png"],
+        "resources": ["assets/images/discount.png","assets/images/rokhdad-activated.png","assets/images/discountRokhdad.png"],
         "matches": ["<all_urls>"]
     }
 ],
