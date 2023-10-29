@@ -37,8 +37,8 @@ function createStickyBox(discountCode) {
   const stickyBox = document.createElement('div');
   stickyBox.id = 'stickyBox';
   stickyBox.style.position = 'fixed';
-  stickyBox.style.left = '15px';
-  stickyBox.style.bottom = '70px';
+  stickyBox.style.left = '-15px';
+  stickyBox.style.bottom = '99px';
   stickyBox.style.zIndex = '9999';
   stickyBox.style.padding = '30px';
 
@@ -58,8 +58,8 @@ function createRokhdad() {
   const stickyBox = document.createElement('div');
   stickyBox.id = 'stickyBox';
   stickyBox.style.position = 'fixed';
-  stickyBox.style.left = '15px';
-  stickyBox.style.bottom = '185px';
+  stickyBox.style.left = '-15px';
+  stickyBox.style.bottom = '42px';
   stickyBox.style.zIndex = '9999';
   stickyBox.style.padding = '30px';
 
@@ -81,8 +81,8 @@ function checkDiscount() {
     const stickyBox = document.createElement('div');
     stickyBox.id = 'stickyBox';
     stickyBox.style.position = 'fixed';
-    stickyBox.style.left = '15px';
-    stickyBox.style.bottom = '70px';
+    stickyBox.style.left = '-15px';
+    stickyBox.style.bottom = '99px';
     stickyBox.style.zIndex = '9999';
     stickyBox.style.padding = '30px';
 
